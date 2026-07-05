@@ -1,0 +1,30 @@
+Retrieval-Augmented Generation: An Overview
+
+Retrieval-Augmented Generation, or RAG, is a technique that combines information retrieval with text generation. Instead of relying purely on the internal knowledge stored in a language model's parameters, a RAG system first retrieves relevant pieces of text from an external knowledge source, such as a collection of documents, and then uses that retrieved text as context for generating an answer.
+
+Why RAG Matters
+Large language models are trained on a fixed snapshot of data and can produce outdated or incorrect information when asked about topics outside their training data. RAG solves this by grounding the model's responses in real, up to date, or domain specific documents. This makes RAG especially useful for private company data, personal notes, research papers, or any information that was never part of the model's training set.
+
+Document Ingestion
+The first step in a RAG pipeline is loading the raw documents. These can be PDFs, text files, Word documents, or web pages. The raw content is extracted and converted into plain text so it can be processed further.
+
+Text Chunking
+Long documents are split into smaller chunks, typically a few hundred words each, often with some overlap between consecutive chunks. Chunking improves retrieval accuracy because it allows the system to pinpoint the specific passage that answers a question, rather than retrieving an entire document.
+
+Embeddings
+Each chunk of text is converted into a numerical vector called an embedding. Embeddings capture the semantic meaning of text, so that chunks with similar meaning end up close together in vector space, even if they use different words.
+
+Vector Database
+The embeddings for all chunks are stored in a vector database or a simple in memory index. This allows the system to quickly search for the chunks that are most similar to a given query.
+
+Query Processing and Retrieval
+When a user asks a question, the question itself is converted into an embedding using the same method used for the document chunks. The system then compares the query embedding to all the stored chunk embeddings and retrieves the top matching chunks, usually using cosine similarity.
+
+Answer Generation
+The retrieved chunks are passed to a language model along with the original question, as additional context. The language model then generates a final answer that is grounded in the retrieved information, rather than relying only on what it memorized during training.
+
+Applications of RAG
+RAG systems are widely used in customer support chatbots, internal knowledge assistants, enterprise search tools, legal and medical document question answering, and coding assistants that need to reference large codebases or documentation.
+
+Common Improvements
+Developers often improve basic RAG systems by using better chunking strategies, trying different embedding models, combining keyword search with vector search in a hybrid approach, adding a re ranking step after retrieval, and experimenting with different generation models to improve the quality of the final answer.
