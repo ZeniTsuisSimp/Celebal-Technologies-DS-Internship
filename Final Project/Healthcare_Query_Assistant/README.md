@@ -1,8 +1,6 @@
 #  RAG-Based Healthcare Query Assistant
 ### A Multi-Agent Conversational System for Structured (SQL) and Unstructured (RAG) Hospital Data Retrieval
 
-**Submitted By:** Aman Kumar | **Role:** Data Science Intern, Celebal Technologies  
-**Institution:** Maharishi Markandeshwar (Deemed to be University)
 
 ---
 
