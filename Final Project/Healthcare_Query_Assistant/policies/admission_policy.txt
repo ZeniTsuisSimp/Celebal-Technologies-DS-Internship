@@ -1,0 +1,1 @@
+Hospital Admission Policy: All patients must present a valid government-issued ID and their active insurance card upon arrival. Emergency admissions are triaged and processed within 15 minutes of arrival. Elective admissions require prior scheduling at least 48 hours in advance and a completed pre-admission health check.

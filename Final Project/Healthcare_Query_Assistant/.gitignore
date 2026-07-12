@@ -1,0 +1,10 @@
+   .env
+   __pycache__/
+   *.pyc
+   agent_routing.log
+   healthcare.db
+   faiss_index/
+   policies/
+   .venv/
+   venv/
+   
