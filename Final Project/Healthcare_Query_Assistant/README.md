@@ -72,59 +72,60 @@ At the core of the system is an **Orchestrator Agent** that inspects each incomi
 
 ---
 
- ## ✨ Key Features
--**🧠 Intelligent Orchestrator:** Automatically routes queries to SQL, RAG, or Fallback based on intent.
--**🗄️ NLP-to-SQL Pipeline:** Translates natural language into precise SQL queries, handling messy data casing and complex aggregations.
--**RAG Pipeline:** Retrieves semantically relevant context from hospital policy documents using FAISS vector search.
--**💬 Conversation Memory:** Maintains short-term context, allowing users to ask stateless follow-up questions (e.g., "List 20 of them").
--**🛡️ Defensive Engineering:** Custom wrappers prevent API crashes from empty database returns, context window overflows, and LLM hallucinations.
--**🎨 Modern Dark UI:** Professional, responsive Streamlit dashboard with system metrics and live status indicators.
-
-
----
- ## ️ Architecture & Multi-Agent System
- The application is built around a three-agent architecture:
-
- 1. **Orchestrator Agent (Router):** Analyses the user's prompt and classifies its intent into `SQL` (patient data), `RAG` (hospital policies), or `UNKNOWN` (out-of-domain).
- 2. **NLP-to-SQL Agent:** Translates natural-language questions into syntactically correct SQL queries, executes them against the SQLite database, and formats the raw rows into conversational Markdown tables.
- 3. **RAG Agent:** Retrieves the top-k most relevant text chunks from the FAISS vector store and uses the retrieved context to generate a grounded, hallucination-resistant answer via the LLM.
+## ✨ Key Features
+- **🧠 Intelligent Orchestrator:** Automatically routes queries to SQL, RAG, or Fallback based on intent.
+- **🗄️ NLP-to-SQL Pipeline:** Translates natural language into precise SQL queries, handling messy data casing and complex aggregations.
+- **RAG Pipeline:** Retrieves semantically relevant context from hospital policy documents using FAISS vector search.
+- **💬 Conversation Memory:** Maintains short-term context, allowing users to ask stateless follow-up questions (e.g., "List 20 of them").
+- **🛡️ Defensive Engineering:** Custom wrappers prevent API crashes from empty database returns, context window overflows, and LLM hallucinations.
+- **🎨 Modern Dark UI:** Professional, responsive Streamlit dashboard with system metrics and live status indicators.
 
 ---
- ## 🛠️ Technology Stack
+
+## ️ Architecture & Multi-Agent System
+The application is built around a three-agent architecture:
  
- | Component | Technology Used |
- | :--- | :--- |
- | **Language** | Python 3.10+ |
- | **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
- | **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
- | **Vector Database** | FAISS (Facebook AI Similarity Search) |
- | **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
- | **Relational Database** | SQLite, with indexed columns for query performance |
- | **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
- | **Data Manipulation** | Pandas, NumPy |
+1. **Orchestrator Agent (Router):** Analyses the user's prompt and classifies its intent into `SQL` (patient data), `RAG` (hospital policies), or `UNKNOWN` (out-of-domain).
+2. **NLP-to-SQL Agent:** Translates natural-language questions into syntactically correct SQL queries, executes them against the SQLite database, and formats the raw rows into conversational Markdown tables.
+3. **RAG Agent:** Retrieves the top-k most relevant text chunks from the FAISS vector store and uses the retrieved context to generate a grounded, hallucination-resistant answer via the LLM.
 
 ---
 
- ## 📂 Project Structure & Deliverables
- 
- ```text
- Healthcare_Query_Assistant/
- │
- ├── 📂 notebooks/               # Development, testing & documentation
- │   ├── 01_Data_Preparation.ipynb
- │   ├── 02_Rag_Pipeline.ipynb
- │   └── 03_Agent_Testing.ipynb
- │
- ├── 📂 policies/                # Raw synthetic hospital policy documents
- ├── faiss_index/                # Saved FAISS vector database
- │
- ├── app.py                      # Main entry point (Streamlit UI & Integration)
- ├── backend.py                  # AI Logic (LLM, Agents, Safety Patches)
- ├── ui.py                       # UI Logic (CSS, Sidebar, Chat Interface)
- ├── healthcare.db               # Cleaned, indexed SQLite patient database
- ├── agent_routing.log           # Backend log providing proof of routing decisions
- ├── requirements.txt            # Python dependencies
- └── .env.example                # Environment variable template
+## 🛠️ Technology Stack
+
+| Component | Technology Used |
+| :--- | :--- |
+| **Language** | Python 3.10+ |
+| **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
+| **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
+| **Vector Database** | FAISS (Facebook AI Similarity Search) |
+| **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
+| **Relational Database** | SQLite, with indexed columns for query performance |
+| **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
+| **Data Manipulation** | Pandas, NumPy |
+
+---
+
+## 📂 Project Structure & Deliverables
+
+```text
+Healthcare_Query_Assistant/
+│
+├── 📂 notebooks/               # Development, testing & documentation
+│   ├── 01_Data_Preparation.ipynb
+│   ├── 02_Rag_Pipeline.ipynb
+│   └── 03_Agent_Testing.ipynb
+│
+├── 📂 policies/                # Raw synthetic hospital policy documents
+├── faiss_index/                # Saved FAISS vector database
+│
+├── app.py                      # Main entry point (Streamlit UI & Integration)
+├── backend.py                  # AI Logic (LLM, Agents, Safety Patches)
+├── ui.py                       # UI Logic (CSS, Sidebar, Chat Interface)
+├── healthcare.db               # Cleaned, indexed SQLite patient database
+├── agent_routing.log           # Backend log providing proof of routing decisions
+├── requirements.txt            # Python dependencies
+└── .env.example                # Environment variable template
 ```
 
 ---
