@@ -52,21 +52,35 @@ The application is built around a three-agent architecture:
 Healthcare_Query_Assistant/
 │
 ├── 📂 notebooks/               # Development, testing & documentation
-│   ├── 01_Data_Preparation.ipynb
-│   ├── 02_Rag_Pipeline.ipynb
-│   └── 03_Agent_Testing.ipynb
+│   ├── 01_data_preparation.ipynb
+│   ├── 02_rag_pipeline.ipynb
+│   ── 03_agent_testing.ipynb
+│
+├── 📂 pipelines/               # Modular pipeline components
+│   ├── __init__.py
+│   ├── sql_pipeline.py         # NLP-to-SQL Agent logic
+│   └── rag_pipeline.py         # RAG Agent logic
 │
 ├── 📂 policies/                # Raw synthetic hospital policy documents
-├── faiss_index/                # Saved FAISS vector database
+├── 📂 faiss_index/             # Saved FAISS vector database
 │
 ├── app.py                      # Main entry point (Streamlit UI & Integration)
 ├── backend.py                  # AI Logic (LLM, Agents, Safety Patches)
 ├── ui.py                       # UI Logic (CSS, Sidebar, Chat Interface)
 ├── healthcare.db               # Cleaned, indexed SQLite patient database
+├── healthcare_dataset.csv      # Original raw dataset
+│
+├── 📄 Final Project Report @ Celebal Tech.pdf  # Comprehensive project documentation
+│
+├── ️ image-1.png              # Dashboard screenshot
+├── 🖼️ image-2.png              # SQL Agent query screenshot
+├── 🖼️ image-3.png              # RAG Agent query screenshot
+├── ️ image-4.png              # Out-of-domain handling screenshot
+│
 ├── agent_routing.log           # Backend log providing proof of routing decisions
 ├── requirements.txt            # Python dependencies
-└── .env.example                # Environment variable template
-```
+├── README.md                   # Project documentation
+└── .gitignore                  # Git ignore rules (excludes .env, __pycache__, etc.)
 
 ---
 
