@@ -34,16 +34,16 @@ The application is built around a three-agent architecture:
 
 ## 🛠️ Technology Stack
 
-- | Component | Technology Used |
-- | :--- | :--- |
-- | **Language** | Python 3.10+ |
-- | **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
-- | **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
-- | **Vector Database** | FAISS (Facebook AI Similarity Search) |
-- | **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
-- | **Relational Database** | SQLite, with indexed columns for query performance |
-- | **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
-- | **Data Manipulation** | Pandas, NumPy |
+| Component | Technology Used |
+| :--- | :--- |
+| **Language** | Python 3.10+ |
+| **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
+| **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
+| **Vector Database** | FAISS (Facebook AI Similarity Search) |
+| **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
+| **Relational Database** | SQLite, with indexed columns for query performance |
+| **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
+| **Data Manipulation** | Pandas, NumPy |
 
 ---
 
@@ -61,7 +61,8 @@ Healthcare_Query_Assistant/
 #  RAG-Based Healthcare Query Assistant
 ### A Multi-Agent Conversational System for Structured (SQL) and Unstructured (RAG) Hospital Data Retrieval
 
-
+**Submitted By:** Aman Kumar | **Role:** Data Science Intern, Celebal Technologies  
+**Institution:** Maharishi Markandeshwar (Deemed to be University)
 
 ---
 
@@ -84,7 +85,7 @@ At the core of the system is an **Orchestrator Agent** that inspects each incomi
 
 ## ️ Architecture & Multi-Agent System
 The application is built around a three-agent architecture:
- 
+
 1. **Orchestrator Agent (Router):** Analyses the user's prompt and classifies its intent into `SQL` (patient data), `RAG` (hospital policies), or `UNKNOWN` (out-of-domain).
 2. **NLP-to-SQL Agent:** Translates natural-language questions into syntactically correct SQL queries, executes them against the SQLite database, and formats the raw rows into conversational Markdown tables.
 3. **RAG Agent:** Retrieves the top-k most relevant text chunks from the FAISS vector store and uses the retrieved context to generate a grounded, hallucination-resistant answer via the LLM.
