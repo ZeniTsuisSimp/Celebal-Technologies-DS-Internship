@@ -16,7 +16,7 @@ At the core of the system is an **Orchestrator Agent** that inspects each incomi
 ## ✨ Key Features
 - **🧠 Intelligent Orchestrator:** Automatically routes queries to SQL, RAG, or Fallback based on intent.
 - **🗄️ NLP-to-SQL Pipeline:** Translates natural language into precise SQL queries, handling messy data casing and complex aggregations.
-- ** RAG Pipeline:** Retrieves semantically relevant context from hospital policy documents using FAISS vector search.
+- **RAG Pipeline:** Retrieves semantically relevant context from hospital policy documents using FAISS vector search.
 - **💬 Conversation Memory:** Maintains short-term context, allowing users to ask stateless follow-up questions (e.g., "List 20 of them").
 - **🛡️ Defensive Engineering:** Custom wrappers prevent API crashes from empty database returns, context window overflows, and LLM hallucinations.
 - **🎨 Modern Dark UI:** Professional, responsive Streamlit dashboard with system metrics and live status indicators.
