@@ -81,10 +81,10 @@ Healthcare_Query_Assistant/
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # Project documentation
 └── .gitignore                  # Git ignore rules (excludes .env, __pycache__, etc.)
+```
 
----
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 ### 1. Prerequisites
 - Python 3.10 or higher
