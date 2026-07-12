@@ -34,16 +34,16 @@ The application is built around a three-agent architecture:
 
 ## 🛠️ Technology Stack
 
-- | Component | Technology Used |
-- | :--- | :--- |
-- | **Language** | Python 3.10+ |
-- | **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
-- | **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
-- | **Vector Database** | FAISS (Facebook AI Similarity Search) |
-- | **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
-- | **Relational Database** | SQLite, with indexed columns for query performance |
-- | **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
-- | **Data Manipulation** | Pandas, NumPy |
+| Component | Technology Used |
+| :--- | :--- |
+| **Language** | Python 3.10+ |
+| **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) — chosen for ultra-low latency |
+| **Agent Framework** | LangChain (Agent orchestration, tool calling, prompt templating) |
+| **Vector Database** | FAISS (Facebook AI Similarity Search) |
+| **Embeddings** | HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (local, zero-cost) |
+| **Relational Database** | SQLite, with indexed columns for query performance |
+| **Frontend / UI** | Streamlit (Dark-themed, interactive dashboard) |
+| **Data Manipulation** | Pandas, NumPy |
 
 ---
 
