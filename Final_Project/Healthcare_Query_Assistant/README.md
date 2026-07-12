@@ -1,6 +1,6 @@
 #  RAG-Based Healthcare Query Assistant
 ### A Multi-Agent Conversational System for Structured (SQL) and Unstructured (RAG) Hospital Data Retrieval
-
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://healthcarequeryassistant.streamlit.app/)
 
 ---
 
