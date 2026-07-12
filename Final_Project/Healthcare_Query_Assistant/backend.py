@@ -76,33 +76,23 @@ def initialize_system():
 
     # 4. Initialize Orchestrator (Router)
     router_prompt = ChatPromptTemplate.from_template(
-        """You are an expert routing agent. Analyze the user's query AND the conversation history to determine which system should handle it.
+        """You are an expert routing agent. Analyze the user's query and the conversation history to determine the best system to handle it.
         
         Conversation History:
         {history}
         
         Current User Query: {query}
         
-        Routing Rules:
-        - Output 'SQL' if the query is about:
-          * Patient records, demographics, or personal information
-          * Medical conditions, diagnoses, or test results of specific patients
-          * Billing amounts, insurance providers, or costs for patients
-          * Doctor names, hospital names, room numbers
-          * Admission dates, discharge dates for specific patients
-          * COUNT, SUM, AVG, or statistical queries about patient data
-          * Short follow-up commands (e.g., 'list 20', 'show 10', 'tell me more')
+        You have two systems available:
+        1. SQL AGENT: Handles structured data about SPECIFIC PATIENTS. Use this for demographics, medical diagnoses, billing amounts, doctor names, dates, and statistical aggregations (COUNT, SUM, AVG).
+        2. RAG AGENT: Handles unstructured text about HOSPITAL RULES. Use this for policies, procedures, guidelines, requirements, and general hospital operations (e.g., admission rules, discharge criteria, visitor limits, insurance approvals).
         
-        - Output 'RAG' if the query is about:
-          * Hospital policies, procedures, rules, or guidelines
-          * Discharge policy, admission policy, billing policy
-          * Requirements, conditions, or steps for hospital processes
-          * Visitor rules, emergency procedures, insurance approval processes
-          * "What is the policy for...", "How to...", "What are the requirements..."
+        Instructions:
+        - Analyze the semantic intent of the query. Is the user asking for DATA about a patient (SQL), or RULES about the hospital (RAG)?
+        - Pay attention to context. If the query is a short follow-up (e.g., "List 20", "Tell me more"), route it to the same agent that handled the previous query.
+        - If the query is completely unrelated to healthcare or hospital operations, output 'UNKNOWN'.
         
-        - Output 'UNKNOWN' if the query is completely unrelated to healthcare.
-        
-        Output only 'SQL', 'RAG', or 'UNKNOWN':"""
+        Output ONLY 'SQL', 'RAG', or 'UNKNOWN':"""
     )
     router_chain = router_prompt | llm | StrOutputParser()
 
